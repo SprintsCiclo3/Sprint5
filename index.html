@@ -7,14 +7,23 @@
     <title>TecnoTic Store</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body id="container">
     <nav id="horizontal_navbar">
         <img id="landing_logo" src="img/Procesador.jpeg">
         <button id="boton_registro_usuario" type="button">
         <a id="irA_registro _usuario" href="registro.html">Registro Usuario</a>    
         </button>
     </nav>
-    <h1> TecnoTic - Store</h1>
+    <svg viewBox="0 0 1000 300">
+        <symbol id="s-text">
+          <text text-anchor="middle" x="50%" y="50%" dy=".35em">TecnoTic - Store</text>
+        </symbol>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+    </svg>
     <img id="tecnotic" src="img/Procesador.jpeg" title="Store Tecnología">
     <p>Bienvenido a la tienda virtual lider en tecnología, encuentra lo mejor del mercado en productos y accesorios tecnológicos.</p>
     <script src="/validaciones.js"></script>
