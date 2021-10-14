@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    text-align: center;
+    background: grey;
+}
+.cabezera {
+    background: #FFFBB9;
+    border: 1px solid #999999;
+    padding: 20px;
+}
+.pie {
+    clear: both; /*limpiar el flotante*/
+    padding: 20px;
+    background: #9EADB6;
+}
+
+header,footer{
+    display: block;
+}
+
+.username {
+    background: #ff0000;
+}
+
+.password {
+    background: #2986cc;
+}
+
+.captcha {
+    background: #6aa84f;
+}

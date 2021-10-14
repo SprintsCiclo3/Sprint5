@@ -36,12 +36,12 @@ function agregarRegistro(){
             return false;
         }
     
-       else  if (edad<0){
+        else  if (edad<0){
             alert("debe ser un numero positivo");
             return false;
         }
     
-       else if (edad < 13 || edad >= 110){
+        else if (edad < 13 || edad >= 110){
             alert("debe ser mayor o igual a 13 y menor de 110");
             return false;
         }
