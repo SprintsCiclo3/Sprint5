@@ -3,7 +3,7 @@ let registros = [];
 function agregarRegistro(){
     
     let nombre = document.getElementById("dato_nombre_usuario").value;
-    let edad = document.getElementById("dato_edad_usuario").value;
+    // let edad = document.getElementById("dato_edad_usuario").value;
     let contrasena = document.getElementById("dato_contrasena").value;
     let caracteresUsuario = /^[a-zA-Z\s]+$/;
 
@@ -29,20 +29,20 @@ function agregarRegistro(){
         
 // ======================== edad ===========================
 
-        if (Number.isInteger(edad)){
-            alert("debe ser un numero");
-            return false;
-        }
+        // if (Number.isInteger(edad)){
+        //     alert("debe ser un numero");
+        //     return false;
+        // }
     
-        else  if (edad<0){
-            alert("debe ser un numero positivo");
-            return false;
-        }
+        // else  if (edad<0){
+        //     alert("debe ser un numero positivo");
+        //     return false;
+        // }
     
-        else if (edad < 13 || edad >= 110){
-            alert("debe ser mayor o igual a 13 y menor de 110");
-            return false;
-        }
+        // else if (edad < 13 || edad >= 110){
+        //     alert("debe ser mayor o igual a 13 y menor de 110");
+        //     return false;
+        // }
 // ====================== contraseña =========================
 
 var caracteres = /^[a-z0-9]+$/i;
@@ -61,21 +61,24 @@ var caracteres = /^[a-z0-9]+$/i;
     else{
         let usuario = {
             usuario : nombre,
-            edad : edad,
+            // edad : edad,
             contrasena : contrasena,
         };
         document.getElementById("dato_nombre_usuario").value = "";
-        document.getElementById("dato_edad_usuario").value = "";
+        // document.getElementById("dato_edad_usuario").value = "";
         contrasena = document.getElementById("dato_contrasena").value = "";
 
 //   ======== objeto envio =========
 
         registros.push(usuario);  
         // console.log(registros);
+
+        console.log(registros);
         return true;
     
     }
 }
+
 
 
 function iniciar_sesion(usuario, contrasena, rcaptcha){
@@ -83,23 +86,47 @@ function iniciar_sesion(usuario, contrasena, rcaptcha){
         
         let isUsuario = false;
         for (i = 0; i < registros.length; i++) {
-            
+
             if (registros[i].usuario==usuario && registros[i].contrasena==contrasena){
                 isUsuario = true;
-                alert("Bienvenido")
                 break;
-            }else if (i==registros.length-1){
-                alert("usuario o contraseña incorrectos")
             }
-            
+
         }
+
+        let isCaptcha = false;
+        if (validar_captcha(rcaptcha)){
+            isCaptcha = true;
+        }
+        
+
+        if (isUsuario && isCaptcha){
+            return true;
+        }else{
+            return false;
+        }
+        
     
-    // ======== validar captcha ========
+}
+
+
     
-    
+function validar_captcha(rcaptcha){
+
+    // this.rcaptcha = rcaptcha;
+    comparar = "bogota";
+    rcaptcha = rcaptcha.toLowerCase();
+
+    if ((comparar == rcaptcha) || rcaptcha == "bogotá" ){
+        return true;
     }
+    else {
+        return false;
+    }
+
+}
 
 
 module.exports.registros = registros;
-module.exports.agregarRegistro = agregarRegistro;
+module.exports.validar_captcha = validar_captcha;
 module.exports.iniciar_sesion = iniciar_sesion;
